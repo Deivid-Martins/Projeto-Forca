@@ -2,23 +2,28 @@ package main;
 
 import java.util.Scanner;
 import domain.Dicionario;
+import domain.Forca;
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		int escolhaCategoria;
+		int chooseCategory;
 		
 		System.out.println("-----===== Olá, bem vindo ao jogo da forca!!! =====-----\n\nPara iniciar, primeiro escreva o numero da categoria que deseja\njogar/duelar com seu \"amigo\" querido, não garantimos sua integridade fisica!\n");
 		System.out.println("1 - Objetos\n2 - Alimentos\n3 - Paises\n4 - Animais\n5 - Marcas\n");
 		
-		escolhaCategoria = input.nextInt();
+		chooseCategory = input.nextInt();
 		
-		Dicionario dicionario = new Dicionario(escolhaCategoria);
+		Dicionario dicionario = new Dicionario(chooseCategory);
 		
-		System.out.println("\n-=-=-=-\n\nPalavra Escolhida: " + dicionario.getPalavra());
+		System.out.println("\n-=-=-=-\n\nPalavra Escolhida: " + dicionario.getWord());
 		
+		Forca forca = new Forca(dicionario.getWord());
 		
+//		forca.test();
+		
+		forca.Try('a');
 		
 		input.close();
 	}
