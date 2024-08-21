@@ -7,7 +7,7 @@ import domain.Forca;
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		
+		int quantPlayers;
 		int chooseCategory;
 		
 		System.out.println("-----===== Olá, bem vindo ao jogo da forca!!! =====-----\n\nPara iniciar, primeiro escreva o numero da categoria que deseja\njogar/duelar com seu \"amigo\" querido, não garantimos sua integridade fisica!\n");
@@ -19,11 +19,11 @@ public class Main {
 		
 		System.out.println("\n-=-=-=-\n\nPalavra Escolhida: " + dicionario.getWord());
 		
-		Forca forca = new Forca(dicionario.getWord());
+		System.out.println("Defina a quantia dos jogadores: ");
+		quantPlayers = input.nextInt();
 		
-//		forca.test();
-		
-		forca.Try('a');
+		Forca forca = new Forca(dicionario.getWord(), quantPlayers);
+		forca.getPlayers(quantPlayers);
 		
 		input.close();
 	}
