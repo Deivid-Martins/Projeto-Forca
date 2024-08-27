@@ -159,16 +159,11 @@ public class Dicionario {
 			define_words();
 		}
 		
-		one_word();
+		randomWord();
 	}
 	
-	private void one_word () {
+	public String randomWord () {
 		int index = random.nextInt(words.length);
-		this.word = words[index];
-	}
-	
-	
-	public String getWord () {
-		return this.word;
+		return words[index];
 	}
 }
