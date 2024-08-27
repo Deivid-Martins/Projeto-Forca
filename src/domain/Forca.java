@@ -24,10 +24,4 @@ public class Forca {
 		}
 		System.out.println("Nomes definidos!");
 	}
-	
-	public void getPlayers (int quantPlayers) {
-		for (int i = 0; i < quantPlayers; i++) {
-			System.out.println(players[i].getName(quantPlayers));
-		}
-	}
 }
