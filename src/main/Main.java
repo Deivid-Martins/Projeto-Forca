@@ -9,7 +9,7 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		int quantPlayers;
 		int chooseCategory;
-		//teste de fetch
+		
 		System.out.println("-----===== Olá, bem vindo ao jogo da forca!!! =====-----\n\nPara iniciar, primeiro escreva o numero da categoria que deseja\njogar/duelar com seu \"amigo\" querido, não garantimos sua integridade fisica!\n");
 		System.out.println("1 - Objetos\n2 - Alimentos\n3 - Paises\n4 - Animais\n5 - Marcas\n");
 		
