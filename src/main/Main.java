@@ -11,7 +11,7 @@ public class Main {
 		int chooseCategory;
 		
 		System.out.println("-----===== Olá, bem vindo ao jogo da forca!!! =====-----\n\nPara iniciar, primeiro escreva o numero da categoria que deseja\njogar/duelar com seu \"amigo\" querido, não garantimos sua integridade fisica!\n");
-		System.out.println("1 - Objetos\n2 - Alimentos\n3 - Paises\n4 - Animais\n5 - Marcas\n");
+		System.out.println("[1] - Objetos\n[2] - Alimentos\n[3] - Paises\n[4] - Animais\n[5] - Marcas\n");
 		
 		chooseCategory = input.nextInt();
 		
@@ -23,7 +23,8 @@ public class Main {
 		quantPlayers = input.nextInt();
 		
 		Forca forca = new Forca(dicionario.getWord(), quantPlayers);
-		forca.getPlayers(quantPlayers);
+		System.out.println("Nome: " + forca.players[0].name);
+		System.out.println("Tentativas: " + forca.players[0].tries);
 		
 		input.close();
 	}

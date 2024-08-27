@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Dicionario {
 	public Scanner input = new Scanner(System.in);
 	
-	public int category;
+	private int category;
 	public int size;
 	public String[] words;
 	private String word;
