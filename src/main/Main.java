@@ -3,6 +3,7 @@
 package main;
 
 import java.util.Scanner;
+import domain.Player;
 import domain.Dicionario;
 import domain.Forca;
 
