@@ -1,3 +1,4 @@
+// Classe responsável pela geração de menus com base num array
 package domain;
 
 public class Menu {
