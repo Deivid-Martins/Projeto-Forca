@@ -16,8 +16,8 @@ public class Forca {
 	public void defPlayers (int quantPlayers) {
 		System.out.println("\n----===| Defina o nome dos jogadores |===----");
 		String auxName;
-		int i;
-		for(i = 0; i < quantPlayers; i ++) {
+		this.players = new Player[quantPlayers];
+		for(int i = 0; i < quantPlayers; i ++) {
 			System.out.println("\nJogador " + (i+1) + ": ");
 			auxName = input.nextLine();
 			players[i] = new Player(auxName);
