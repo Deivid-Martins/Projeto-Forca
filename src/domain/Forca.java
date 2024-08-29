@@ -3,7 +3,7 @@ package domain;
 import java.util.Scanner;
 
 public class Forca {
-	public Scanner input = new Scanner(System.in);
+	private Scanner input = new Scanner(System.in);
 	
 	public Player[] players;
 	private String word;
