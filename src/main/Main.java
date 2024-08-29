@@ -1,3 +1,5 @@
+// Projeto (Main)
+// Classe responsável por iniciar o jogo da forca
 package main;
 
 import java.util.Scanner;
