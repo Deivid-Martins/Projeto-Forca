@@ -18,4 +18,3 @@ public class Menu {
 			System.out.printf("[ %d ] - %s\n", i+1, menu[i]); // Exibe uma opção do array
 		}
 	}
-}

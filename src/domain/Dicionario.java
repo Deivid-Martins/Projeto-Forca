@@ -1,10 +1,11 @@
+// Classe que gerencia o dicionário e as palavras dele
 package domain;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Dicionario {
-	public Scanner input = new Scanner(System.in);
+	private Scanner input = new Scanner(System.in);
 	
 	private int category;
 	public int size;
