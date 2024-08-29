@@ -1,3 +1,4 @@
+// Classe que gerencia o dicionário e as palavras dele
 package domain;
 
 import java.util.Random;
