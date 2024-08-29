@@ -3,6 +3,7 @@
 package main;
 
 import java.util.Scanner; // Para entrada de dados
+import domain.Menu;
 import domain.Dicionario; // Dicionário da forca
 import domain.Forca; // A própria forca
 
@@ -12,8 +13,8 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		Scanner inputNum = new Scanner(System.in);
 		
+		
 		//variaveis para definir respectivamente, quantidade de jogares e categoria da forca
-		int quantPlayers;
 		int chooseCategory;
 		
 		
@@ -25,19 +26,16 @@ public class Main {
 		//Criação do dicionario já com a categoria correta
 		Dicionario dicionario = new Dicionario(chooseCategory);
 		
-		//Criação da forca ultilizando a função que retorna uma palavra aleatoria
-		Forca forca = new Forca(dicionario.randomWord());
+		Forca forca = new Forca();
+		forca.word = dicionario.randomWord();
 		
-		//Criação do array Jogadores com tamanho definido pelo usuário
-		System.out.println("Defina a quantidade de jogadores: ");
-		quantPlayers = inputNum.nextInt();
+		//Criação da forca ultilizando a função que retorna uma palavra aleatoria
 		
 		//Definir cada nome de cada jogador
-		forca.defPlayers(quantPlayers);
 		
 		System.out.println("Palavra escolhida: " + forca.getWord());
 		System.out.println("Nome: " + forca.players[0].name);
-		System.out.println("Tentativas: " + forca.players[0].tries);
+		System.out.println("Tentativas: " + forca.players[0].attempts);
 		
 		inputNum.close();
 		input.close();
