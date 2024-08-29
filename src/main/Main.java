@@ -3,9 +3,10 @@
 package main;
 
 import java.util.Scanner; // Para entrada de dados
+import domain.Player;
 import domain.Dicionario; // Dicionário da forca
 import domain.Forca; // A própria forca
-//Pau
+
 public class Main {
 	public static void main(String[] args) {
 		//2 Scanners para não dar erro no buffer, utilize o "inputNum" para números, e o "input" para String e char
