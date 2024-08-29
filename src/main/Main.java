@@ -2,10 +2,10 @@
 // Classe responsável por iniciar o jogo da forca
 package main;
 
-import java.util.Scanner;
+import java.util.Scanner; // Para entrada de dados
 import domain.Player;
-import domain.Dicionario;
-import domain.Forca;
+import domain.Dicionario; // Dicionário da forca
+import domain.Forca; // A própria forca
 
 public class Main {
 	public static void main(String[] args) {
