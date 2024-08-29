@@ -3,7 +3,6 @@
 package main;
 
 import java.util.Scanner; // Para entrada de dados
-import domain.Player;
 import domain.Dicionario; // Dicionário da forca
 import domain.Forca; // A própria forca
 
