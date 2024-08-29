@@ -9,6 +9,7 @@ public class Forca {
 	public Player[] players; // Array de jogadores indefinido
 	
 	
+	// Construtor da classe Forca
 	public Forca () {
 		int numPlayers; // Quantidade de jogadores
 		
@@ -21,17 +22,6 @@ public class Forca {
 		}
 	}
 	
-	public void defPlayers (int quantPlayers) {
-		System.out.println("\n----===| Defina o nome dos jogadores |===----");
-		String auxName;
-		int i;
-		for(i = 0; i < quantPlayers; i ++) {
-			System.out.println("\nJogador " + (i+1) + ": ");
-			auxName = input.nextLine();
-			//players[i] = new Player(auxName);
-		}
-		System.out.println("===| Nomes definidos! |===");
-	}
 
 	public String getWord() {
 		return word;
