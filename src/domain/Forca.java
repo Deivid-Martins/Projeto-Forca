@@ -13,8 +13,16 @@ public class Forca {
 		this.word = word;
 	}
 	
-	public void setPlayers (Player[] players) {
-		this.players = players;
+	public void defPlayers (int quantPlayers) {
+		System.out.println("\n----===| Defina o nome dos jogadores |===----");
+		String auxName;
+		int i;
+		for(i = 0; i < quantPlayers; i ++) {
+			System.out.println("\nJogador " + (i+1) + ": ");
+			auxName = input.nextLine();
+			players[i] = new Player(auxName);
+		}
+		System.out.println("===| Nomes definidos! |===");
 	}
 
 	public String getWord() {

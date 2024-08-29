@@ -9,7 +9,6 @@ public class Dicionario {
 	private int category;
 	public int size;
 	public String[] words;
-	private String word;
 	Random random = new Random();
 	
 	public Dicionario (int category) {
@@ -158,8 +157,6 @@ public class Dicionario {
 			this.category = input.nextInt();
 			define_words();
 		}
-		
-		randomWord();
 	}
 	
 	public String randomWord () {
