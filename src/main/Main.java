@@ -1,6 +1,7 @@
 // Projeto (Main)
 // Classe responsável por iniciar o jogo da forca
 package main;
+// Patricio bissexual
 
 import java.util.Scanner; // Para entrada de dados
 import domain.Menu;
