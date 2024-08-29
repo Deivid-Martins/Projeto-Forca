@@ -29,7 +29,7 @@ public class Main {
 		Forca forca = new Forca(dicionario.randomWord());
 		
 		//Criação do array Jogadores com tamanho definido pelo usuário
-		System.out.println("Defina a quantia dos jogadores: ");
+		System.out.println("Defina a quantidade de jogadores: ");
 		quantPlayers = inputNum.nextInt();
 		
 		//Definir cada nome de cada jogador
@@ -38,7 +38,6 @@ public class Main {
 		System.out.println("Palavra escolhida: " + forca.getWord());
 		System.out.println("Nome: " + forca.players[0].name);
 		System.out.println("Tentativas: " + forca.players[0].tries);
-		
 		
 		inputNum.close();
 		input.close();
