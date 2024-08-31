@@ -13,9 +13,9 @@ public class Main {
 		Forca forca = new Forca(); // Forca
 		
 		//Definir cada nome de cada jogador
-		System.out.println("Palavra escolhida: " + forca.getWord());
+		//System.out.println("Palavra escolhida: " + forca.getWord());
 		System.out.println("Nome: " + forca.players[0].name);
-		System.out.println("Tentativas: " + forca.players[0].attempts);
-		forca.players[0].writeForca();
+		
+		forca.kickLetter(forca.players[0]);
 	}
 }
