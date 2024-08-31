@@ -36,6 +36,60 @@ public class Forca {
 			e1 = input.nextInt(); 
 			System.out.println(p2.name + ", Escolha: ");
 			e2 = input.nextInt();
+			if(e1 == e2) {
+				System.out.println("Empate, tentem novamente!");
+			} else {
+				aux = true;
+				switch(e1) {
+					case 1:
+						switch(e2) {
+							case 2:
+								System.out.println(p1.name + ", Parabéns, você perdeu!");
+								break;
+							case 3:
+								System.out.println(p2.name + ", Parabéns, você perdeu!");
+								break;
+						}
+					case 2:
+						switch(e2) {
+							case 1:
+								System.out.println(p2.name + ", Parabéns, você perdeu!");
+								break;
+							case 3:
+								System.out.println(p1.name + ", Parabéns, você perdeu!");
+								break;
+						}
+					case 3:
+						switch(e2) {
+							case 1:
+								System.out.println(p1.name + ", Parabéns, você perdeu!");
+								break;
+							case 2:
+								System.out.println(p2.name + ", Parabéns, você perdeu!");
+								break;
+						}
+					default:
+						System.out.println("||| ERRO INESPERADO |||");
+				}
+			}
 		}
+	}
+	
+	public void changePlayerPos (Player p1, Player p2) {
+		Player aux;
+		int indexP1 = 0;
+		int indexP2 = 0;
+		for(int i = 0; i < players.length; i ++) {
+			if(p1 == players[i]) {
+				indexP1 = i;
+			}
+			if(p2 == players[i]) {
+				indexP2 = i;
+			}
+		}
+		
+		aux = players[indexP1];
+		players[indexP1] = players[indexP2];
+		players[indexP2] = aux;
 	}
 }
