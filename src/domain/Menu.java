@@ -6,8 +6,8 @@ public class Menu {
 	
 	
 	//Construtor do menu
-	public Menu(String[] menu){
-		this.menu = menu;
+	public Menu(String[] opcs){
+		this.menu = opcs;
 	}
 	
 	
