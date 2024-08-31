@@ -26,7 +26,7 @@ public class Forca {
 	}
 	
 	// Função para definir quem vai por ultimo, realizada após a função, zero ou um, AINDA NÂO IMPLEMENTADA
-	private void pedraPapelTesoura (Player p1, Player p2) {
+	private void pedraPapelTesoura (Player p1, Player p2) { // N se preocupe com esse erro, fará sentido
 		int e1; // Escolha do player 1
 		int e2; // Escolha do player 2
 		boolean aux = false;
