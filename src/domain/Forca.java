@@ -1,9 +1,11 @@
 // Classe que gerencia o jogo da forca em si
 package domain;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Forca {
+	private Random random = new Random();
 	private Scanner input = new Scanner(System.in);
 	
 	public String word; // Palavra escolhida
@@ -25,7 +27,24 @@ public class Forca {
 		return word;
 	}
 	
-	
+	public void setOrdem () {
+		boolean aux = false;
+		for(int i = 0; i < players.length; i ++) {
+			
+			while(aux == false) {
+				for(int j = 0; j < players.length; j ++) {
+				
+					
+					players[i].ordem = random.nextInt(players.length) + 1;
+					if (i != j) {
+						if (players[i].ordem == players[j].ordem) {
+							aux = true;
+						}
+					}
+				}
+			}
+		}
+	}
 	
 	public void changePlayerPos (Player p1, Player p2) {
 		Player aux;

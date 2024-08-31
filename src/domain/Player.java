@@ -7,6 +7,7 @@ public class Player {
 	private Scanner input = new Scanner(System.in);
 	public String name; // Nome do jogador
 	public int attempts = 6; // Tentativas
+	public int ordem;
 	
 	//Construtor da classe
 	public Player () {
