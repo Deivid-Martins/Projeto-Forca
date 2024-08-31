@@ -1,4 +1,4 @@
-package domain;
+ package domain;
 
 public class Forca_test {
 	public char[] letters	= {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
