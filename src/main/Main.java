@@ -2,6 +2,7 @@
 // Classe responsável por iniciar o jogo da forca
 package main;
 
+import java.util.Scanner;
 import domain.Forca; // A própria forca
 
 public class Main {
@@ -10,12 +11,24 @@ public class Main {
 		System.out.println("-----===== Olá, bem vindo ao jogo da forca!!! =====-----\n\n");
 		System.out.println("Jogue com seu \"amigo\" querido, não garantimos sua integridade fisica!\n");
 
-		Forca forca = new Forca(); // Forca
+		Scanner input = new Scanner(System.in);
+		char opc;
 		
-		//Definir cada nome de cada jogador
-		System.out.println("Palavra escolhida: " + forca.word);
-		System.out.println("Nome: " + forca.player.name);
+		do {
+			Forca forca = new Forca(); // Forca
+			
+			forca.kickLetter(forca.player);
+
+			do
+			{
+				System.out.print("Você deseja continuar? [s/n]: ");
+				opc = input.next().charAt(0);
+			} while(opc != 's' && opc != 'n');
+			
+		}while(opc != 'n');
 		
-		forca.kickLetter(forca.player);
+		System.out.println("Obrigado por usar nosso programa!");
+		
+		input.close();
 	}
 }
