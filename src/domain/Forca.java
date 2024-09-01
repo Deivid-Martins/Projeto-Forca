@@ -8,23 +8,15 @@ public class Forca {
 	
 	public String word; // Palavra escolhida
 	public char[] letters; // Letras que ele já adivinhou
-	public Player[] players; // Array de jogadores indefinido
-	public Dicionario dict = new Dicionario(); // Dicionário de palavras
+	public Player player; // Array de jogadores indefinido
+	public Dicionario dict; // Dicionário de palavras
 	
 	
 	// Construtor da forca com jogadores e palavra definidos
 	public Forca () {
-		// Criação dos jogadores
-		int numPlayers; // Quantidade de jogadores
-		
-		System.out.print("Defina a quantidade de jogadores: "); // Prompt
-		numPlayers = input.nextInt();
-		this.players = new Player[numPlayers]; // Define a quantidade de jogadores
-		
-		for(int i = 0; i < numPlayers; i++) {
-			players[i] = new Player(); // Cria um novo jogador para cada posição do array
-		}
-		
+		this.dict = new Dicionario();
+		this.player = new Player();
+				
 		
 		// Definição da palavra
 		this.word = dict.randomWord();
@@ -117,10 +109,5 @@ public class Forca {
 				System.out.println("||| ERRO INESPERADO |||");
 				break;
 		}
-	}
-	
-	
-	public String getWord() {
-		return word;
 	}
 }
