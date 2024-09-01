@@ -37,18 +37,21 @@ public class Forca {
 	
 		
 	//Chuta uma letra
-	public void kickLetter(Player jogador) {
-		String palavraMomento = new String(this.letters);; // Como está a palavra no momento
+	public void kickLetter(Player jogador) 
+	{
+		String palavraMomento = new String(this.letters); // Como está a palavra no momento
 		char[] palavraCertaArray = this.word.toCharArray(); // Palavra certa em array
-		int verificador = 0; // Verificador auxiliar
 		char letra; // Letra chutada
+		int verificador = 0; // Verificador auxiliar
 		
-		do {
+		do 
+		{
 			System.out.println(""); // Apenas uma quebra de linha 
 			
+			System.out.println(jogador.name);
 			writeForca(jogador.attempts); // Imprime a forca
-			System.out.printf("Tentativas: %d\n", jogador.attempts);
-			for(int i = 0; i < this.letters.length; i++) { // Imprime as letrinhas
+			for(int i = 0; i < this.letters.length; i++) 
+			{ // Imprime as letrinhas
 				System.out.printf(" %s", this.letters[i]);
 			}
 			
@@ -59,17 +62,31 @@ public class Forca {
 				letra = input.next().charAt(0); // Pega só a primeira letra digitada
 				
 				verificador = 0; // Reinicia a verificação
-				for(int i = 0; i < this.letters.length; i++) { // Se o caractere for o certo, ele fica lá
-					if(letra == palavraCertaArray[i]) {
+				
+				for(int i = 0; i < this.letters.length; i++) 
+				{ // Se o caractere for o certo, ele fica lá
+					if(letra == palavraCertaArray[i]) 
+					{
 						letters[i] = letra;
 						verificador++;
 					}
 				}
-				if(verificador == 0) {
-				jogador.attempts--; // Se for errado, diminui uma chance
+				if(verificador == 0) 
+				{
+					jogador.attempts--; // Se for errado, diminui uma chance
 				}
 			}
-		}while(!(palavraMomento.equalsIgnoreCase(this.word)) && jogador.attempts > 0);
+		} while(!(palavraMomento.equalsIgnoreCase(this.word)) && jogador.attempts > 0);
+		
+		if(jogador.attempts <= 0) 
+		{ // Caso ele perca
+			System.out.println(jogador.name);
+			writeForca(jogador.attempts); // Exibe a forca
+			System.out.println("Que pena... Você perdeu...");
+		} else 
+		{ // Caso ele vença
+			System.out.println("\nParabéns!! Você adivinhou a palavra!");
+		}
 	}
 
 	
