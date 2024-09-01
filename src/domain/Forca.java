@@ -16,7 +16,6 @@ public class Forca {
 	public Forca () {
 		this.dict = new Dicionario();
 		this.player = new Player();
-				
 		
 		// Definição da palavra
 		this.word = dict.randomWord();
@@ -32,37 +31,41 @@ public class Forca {
 	public void kickLetter(Player jogador) 
 	{
 		String palavraMomento = new String(this.letters); // Como está a palavra no momento
-		char[] palavraCertaArray = this.word.toCharArray(); // Palavra certa em array
+		String palavraCerta = new String(this.word); // Palavra certa em string
+		char[] palavraMomentoArray = this.letters;
+		char[] palavraCertaArrayLower = this.word.toLowerCase().toCharArray(); // Palavra certa em array
+		char[] palavraCertaArrayUpper = this.word.toUpperCase().toCharArray(); // Palavra certa em array
 		char letra; // Letra chutada
 		int verificador = 0; // Verificador auxiliar
 		
 		do 
 		{
-			System.out.println(""); // Apenas uma quebra de linha 
-			
-			System.out.println(jogador.name);
+			System.out.println("\n" + jogador.name); // Um novo início no chute
 			writeForca(jogador.attempts); // Imprime a forca
-			for(int i = 0; i < this.letters.length; i++) 
-			{ // Imprime as letrinhas
-				System.out.printf(" %s", this.letters[i]);
-			}
+			
+			// Imprime as letrinhas
+			for(int i = 0; i < palavraMomentoArray.length; i++)
+			{
+				System.out.printf(" %s", palavraMomentoArray[i]); // Imprime uma letra
+			} // Fim do for
 			
 			palavraMomento = new String(this.letters); // A palavra é o próprio array de string
-			
-			if(!(palavraMomento.equalsIgnoreCase(this.word)) && jogador.attempts > 0) {
+
+			if(!(palavraMomento.equalsIgnoreCase(palavraCerta)) && jogador.attempts > 0) {
 				System.out.print("\nChute uma letra: "); // prompt
 				letra = input.next().charAt(0); // Pega só a primeira letra digitada
 				
 				verificador = 0; // Reinicia a verificação
 				
-				for(int i = 0; i < this.letters.length; i++) 
+				for(int i = 0; i < this.letters.length; i++)
 				{ // Se o caractere for o certo, ele fica lá
-					if(letra == palavraCertaArray[i]) 
+					if(letra == palavraCertaArrayLower[i] || letra == palavraCertaArrayUpper[i]) 
 					{
-						letters[i] = letra;
+						letters[i] = palavraCertaArrayUpper[i];
 						verificador++;
 					}
 				}
+				
 				if(verificador == 0) 
 				{
 					jogador.attempts--; // Se for errado, diminui uma chance
@@ -75,13 +78,15 @@ public class Forca {
 			System.out.println(jogador.name);
 			writeForca(jogador.attempts); // Exibe a forca
 			System.out.println("Que pena... Você perdeu...");
+			System.out.printf("Palavra Correta: %s\n", this.word.toUpperCase()); // Exibe a palavra correta
 		} else 
 		{ // Caso ele vença
 			System.out.println("\nParabéns!! Você adivinhou a palavra!");
 		}
 	}
-
 	
+	
+	// Escreve a forca
 	public void writeForca (int tents) {
 		switch(tents) {
 			case 6:

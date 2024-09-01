@@ -162,7 +162,7 @@ public class Dicionario {
 			default:
 				System.out.println("|||Ocorreu um erro inesperado|||");
 		}
-		System.out.println("\nCategoria Escolhida com Sucesso!");
+		System.out.println("Categoria Escolhida com Sucesso!");
 	}
 	
 	

@@ -11,7 +11,7 @@ public class Player {
 	
 	//Construtor da classe
 	public Player () {
-		System.out.print("Defina o nome do jogador: "); // Prompt
+		System.out.print("\nDefina o nome do jogador: "); // Prompt
 		this.name = input.nextLine();
 		
 		this.attempts = 6; // Define a quantidade de chances máximas do jogador
