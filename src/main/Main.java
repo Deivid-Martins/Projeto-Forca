@@ -9,7 +9,6 @@ public class Main {
 	public static void main(String[] args) {
 		// Mensagens de imersão
 		System.out.println("-----===== Olá, bem vindo ao jogo da forca!!! =====-----\n\n");
-		System.out.println("Jogue com seu \"amigo\" querido, não garantimos sua integridade fisica!\n");
 
 		Scanner input = new Scanner(System.in);
 		char opc;
