@@ -10,12 +10,14 @@ public class Forca {
 	public char[] letters; // Letras que ele já adivinhou
 	public Player player; // Array de jogadores indefinido
 	public Dicionario dict; // Dicionário de palavras
+	public Tool tool;
 	
 	
 	// Construtor da forca com jogadores e palavra definidos
 	public Forca () {
 		this.dict = new Dicionario();
 		this.player = new Player();
+		this.tool = new Tool();
 		
 		// Definição da palavra
 		this.word = dict.randomWord();
@@ -24,6 +26,35 @@ public class Forca {
 		for(int i = 0; i < letters.length; i++) {
 			this.letters[i] = '_'; // Define "_" para todas as letras da palavras  
 		}
+	}
+	
+	
+	public void chutarLetra()
+	{
+		char[] tentativaMomento = this.letters; // Como está o usuário e sua tentativa no momento
+		char letraChute; // Letra de chute
+		String palavraMomento; // Como está a adivinhação do usuário, só que string
+		
+		do 
+		{
+			System.out.println("\n" + player.name); // Imprime o nome do jogador
+			writeForca(); // Imprime a forca
+			tool.imprimirCharArray(this.letters); // Imprime o estado das letras
+			
+			System.out.print("Digite uma letra: ");
+			letraChute = input.next().toUpperCase().charAt(0);
+			
+			tentativaMomento = tool.substituirLetra(this.word, tentativaMomento, letraChute); // Assumindo que a letra exista
+			
+			if(tool.charArraysIguais(tentativaMomento, this.letters)) // Se forem iguais, não houve uma substituição de letras
+			{
+				this.player.attempts--; // Diminui uma chance
+			}
+			
+			this.letters = tentativaMomento; // O atributo geral recebe a palavra pós substituição
+			palavraMomento = new String(tentativaMomento);
+					
+		} while(this.player.attempts > 0 && !(this.word.equalsIgnoreCase(palavraMomento)));
 	}
 	
 		
@@ -87,8 +118,8 @@ public class Forca {
 	
 	
 	// Escreve a forca
-	public void writeForca (int tents) {
-		switch(tents) {
+	public void writeForca () {
+		switch(this.player.attempts) {
 			case 6:
 				System.out.println("  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========");
 				break;
