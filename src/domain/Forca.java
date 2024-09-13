@@ -11,7 +11,7 @@ public class Forca {
 	public Player player; // Array de jogadores indefinido
 	public Dicionario dict; // Dicionário de palavras
 	public Tool tool; // Ferramentas
-	
+
 	
 	// Construtor da forca com jogadores e palavra definidos
 	public Forca () {
