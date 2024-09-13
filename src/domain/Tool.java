@@ -16,6 +16,7 @@ public class Tool
 	}
 	
 	
+	// Substitui uma letra num char baseando-se numa string
 	public char[] substituirLetra(String palavra, char[] arrayMomento, char letra)
 	{
 		for(int i = 0; i < palavra.length(); i++)
@@ -29,7 +30,7 @@ public class Tool
 	}
 	
 	
-	
+	// Compara se dois arrays de char são iguais
 	public boolean charArraysIguais(char[] array1, char[] array2)
 	{
 		if(array1.length != array2.length) 
@@ -45,5 +46,19 @@ public class Tool
 			}
 		}
 		return true;
+	}
+	
+	
+	public boolean containsChar(char letra, String palavra)
+	{
+		for(int i = 0; i < palavra.length(); i++)
+		{
+			// Se alguma letra da palavra for igual a passada como parâmetro, retorna true
+			if(palavra.charAt(i) == letra)
+			{
+				return true;
+			}
+		}
+		return false; // Saindo do laço, significa que não há a letra dentro da palavra
 	}
 }

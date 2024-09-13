@@ -31,7 +31,7 @@ public class Forca {
 	
 	public void chutarLetra()
 	{
-		char[] tentativaMomento = this.letters; // Como está o usuário e sua tentativa no momento
+		char[] palavraMomentoArray = this.letters; // Como está o usuário e sua tentativa no momento
 		char letraChute; // Letra de chute
 		String palavraMomento; // Como está a adivinhação do usuário, só que string
 		
@@ -41,73 +41,26 @@ public class Forca {
 			writeForca(); // Imprime a forca
 			tool.imprimirCharArray(this.letters); // Imprime o estado das letras
 			
-			System.out.print("Digite uma letra: ");
-			letraChute = input.next().toUpperCase().charAt(0);
+			System.out.print("Digite uma letra: "); // Prompt
+			letraChute = input.next().toUpperCase().charAt(0); // Pega a letra que o usuário digitar
 			
-			tentativaMomento = tool.substituirLetra(this.word, tentativaMomento, letraChute); // Assumindo que a letra exista
-			
-			if(tool.charArraysIguais(tentativaMomento, this.letters)) // Se forem iguais, não houve uma substituição de letras
+			// Caso a letra que ele chutou esteja presente
+			if(tool.containsChar(letraChute, this.word.toUpperCase()))
 			{
-				this.player.attempts--; // Diminui uma chance
+				tool.substituirLetra(this.word, palavraMomentoArray, letraChute); // Substitui o tracinho pela letra certa
+			} else
+			{
+				this.player.attempts--; // Diminui uma vida do jogador
 			}
-			
-			this.letters = tentativaMomento; // O atributo geral recebe a palavra pós substituição
-			palavraMomento = new String(tentativaMomento);
-					
-		} while(this.player.attempts > 0 && !(this.word.equalsIgnoreCase(palavraMomento)));
-	}
-	
-		
-	//Chuta uma letra
-	public void kickLetter(Player jogador) 
-	{
-		String palavraMomento = new String(this.letters); // Como está a palavra no momento
-		String palavraCerta = new String(this.word); // Palavra certa em string
-		char[] palavraMomentoArray = this.letters;
-		char[] palavraCertaArrayLower = this.word.toLowerCase().toCharArray(); // Palavra certa em array
-		char[] palavraCertaArrayUpper = this.word.toUpperCase().toCharArray(); // Palavra certa em array
-		char letra; // Letra chutada
-		int verificador = 0; // Verificador auxiliar
-		
-		do 
-		{
-			System.out.println("\n" + jogador.name); // Um novo início no chute
-			writeForca(jogador.attempts); // Imprime a forca
-			
-			// Imprime as letrinhas
-			for(int i = 0; i < palavraMomentoArray.length; i++)
-			{
-				System.out.printf(" %s", palavraMomentoArray[i]); // Imprime uma letra
-			} // Fim do for
-			
-			palavraMomento = new String(this.letters); // A palavra é o próprio array de string
 
-			if(!(palavraMomento.equalsIgnoreCase(palavraCerta)) && jogador.attempts > 0) {
-				System.out.print("\nChute uma letra: "); // prompt
-				letra = input.next().charAt(0); // Pega só a primeira letra digitada
-				
-				verificador = 0; // Reinicia a verificação
-				
-				for(int i = 0; i < this.letters.length; i++)
-				{ // Se o caractere for o certo, ele fica lá
-					if(letra == palavraCertaArrayLower[i] || letra == palavraCertaArrayUpper[i]) 
-					{
-						letters[i] = palavraCertaArrayUpper[i];
-						verificador++;
-					}
-				}
-				
-				if(verificador == 0) 
-				{
-					jogador.attempts--; // Se for errado, diminui uma chance
-				}
-			}
-		} while(!(palavraMomento.equalsIgnoreCase(this.word)) && jogador.attempts > 0);
+			palavraMomento = new String(palavraMomentoArray); // As tentativas viram uma string
+					
+		} while(this.player.attempts > 0 && !(this.word.equalsIgnoreCase(palavraMomento))); // Caso ele nem tenha acertado nem morrido
 		
-		if(jogador.attempts <= 0) 
+		if(player.attempts <= 0) 
 		{ // Caso ele perca
-			System.out.println(jogador.name);
-			writeForca(jogador.attempts); // Exibe a forca
+			System.out.println(player.name);
+			writeForca(); // Exibe a forca
 			System.out.println("Que pena... Você perdeu...");
 			System.out.printf("Palavra Correta: %s\n", this.word.toUpperCase()); // Exibe a palavra correta
 		} else 
