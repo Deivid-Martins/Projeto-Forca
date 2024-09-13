@@ -1,4 +1,4 @@
-// Classe que gerencia o jogo da forca em si
+//Classe que gerencia o jogo da forca em si
 package domain;
 
 import java.util.Scanner;
@@ -10,6 +10,7 @@ public class Forca {
 	public char[] letters; // Letras que ele já adivinhou
 	public Player player; // Array de jogadores indefinido
 	public Dicionario dict; // Dicionário de palavras
+	public char[] charPermitidos = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}; // Array de caracteres que podem ser ultilizados na forca
 	public Tool tool;
 	
 	
@@ -100,3 +101,4 @@ public class Forca {
 		}
 	}
 }
+
