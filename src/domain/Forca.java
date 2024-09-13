@@ -10,7 +10,7 @@ public class Forca {
 	public char[] letters; // Letras que ele já adivinhou
 	public Player player; // Array de jogadores indefinido
 	public Dicionario dict; // Dicionário de palavras
-	public Tool tool;
+	public Tool tool; // Ferramentas
 	
 	
 	// Construtor da forca com jogadores e palavra definidos
@@ -47,7 +47,8 @@ public class Forca {
 			// Caso a letra que ele chutou esteja presente				
 			if(tool.containsChar(letraChute, this.word.toUpperCase()))
 			{
-				tool.substituirLetra(this.word, palavraMomentoArray, letraChute); // Substitui o tracinho pela letra certa
+				palavraMomentoArray = tool.substituirLetra(this.word, palavraMomentoArray, letraChute); // Substitui o tracinho pela letra certa
+				player.pontos += 100; // Ganha 100 pontas
 			} else
 			{
 				this.player.attempts--; // Diminui uma vida do jogador
@@ -56,6 +57,7 @@ public class Forca {
 			palavraMomento = new String(palavraMomentoArray); // As tentativas viram uma string
 					
 		} while(this.player.attempts > 0 && !(this.word.equalsIgnoreCase(palavraMomento))); // Caso ele nem tenha acertado nem morrido
+		
 		
 		if(player.attempts <= 0) 
 		{ // Caso ele perca
@@ -66,7 +68,8 @@ public class Forca {
 		} else
 		{ // Caso ele vença
 			System.out.println("\nParabéns!! Você adivinhou a palavra!");
-			tool.imprimirCharArray(this.letters);
+			System.out.printf("Palavra Correta: %s\n", this.word.toUpperCase()); // Exibe a palavra correta
+			player.pontos += 500; // Ganha 500 pontos
 		}
 	}
 	

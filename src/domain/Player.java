@@ -8,6 +8,7 @@ public class Player {
 	public String name; // Nome do jogador
 	public int attempts; // Tentativas
 	public int ordem; // Ordem pra jogar
+	public int pontos; // Pontuação do jogador
 	
 	//Construtor da classe
 	public Player () {
@@ -15,5 +16,6 @@ public class Player {
 		this.name = input.nextLine();
 		
 		this.attempts = 6; // Define a quantidade de chances máximas do jogador
+		this.pontos = 0; // Pontos iniciais do jogador
 	}
 }
