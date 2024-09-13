@@ -45,6 +45,7 @@ public class Forca {
 			letraChute = input.next().toUpperCase().charAt(0); // Pega a letra que o usuário digitar
 			
 			// Caso a letra que ele chutou esteja presente
+			// Caso a letra que ele chutou esteja presente				
 			if(tool.containsChar(letraChute, this.word.toUpperCase()))
 			{
 				tool.substituirLetra(this.word, palavraMomentoArray, letraChute); // Substitui o tracinho pela letra certa
@@ -64,8 +65,10 @@ public class Forca {
 			System.out.println("Que pena... Você perdeu...");
 			System.out.printf("Palavra Correta: %s\n", this.word.toUpperCase()); // Exibe a palavra correta
 		} else 
+		} else
 		{ // Caso ele vença
 			System.out.println("\nParabéns!! Você adivinhou a palavra!");
+			tool.imprimirCharArray(this.letters);
 		}
 	}
 	
