@@ -1,4 +1,3 @@
-// my pal
 // Classe que gerencia o dicionário e as palavras dele
 package domain;
 
