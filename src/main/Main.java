@@ -16,7 +16,7 @@ public class Main {
 		do {
 			Forca forca = new Forca(); // Forca
 			
-			forca.kickLetter(forca.player);
+			forca.chutarLetra();
 
 			do
 			{
