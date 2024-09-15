@@ -43,14 +43,19 @@ public class Forca {
 			System.out.print("Digite uma letra: "); // Prompt
 			letraChute = input.next().toUpperCase().charAt(0); // Pega a letra que o usuário digitar
 			
-			// Caso a letra que ele chutou esteja presente				
-			if(tool.containsChar(letraChute, this.word.toUpperCase()))
-			{
-				palavraMomentoArray = tool.substituirLetra(this.word, palavraMomentoArray, letraChute); // Substitui o tracinho pela letra certa
-				player.pontos += 100; // Ganha 100 pontas
-			} else
-			{
-				this.player.attempts--; // Diminui uma vida do jogador
+			//Função que verifica se a letra do chute, realmente é uma letra no alfabeto, essa função não tem ligação com a palavra
+			if(tool.chuteIsPossible(letraChute)) {
+				// Caso a letra que ele chutou esteja presente				
+				if(tool.containsChar(letraChute, this.word.toUpperCase()))
+				{
+					palavraMomentoArray = tool.substituirLetra(this.word, palavraMomentoArray, letraChute); // Substitui o tracinho pela letra certa
+					player.pontos += 100; // Ganha 100 pontas
+				} else
+				{
+					this.player.attempts--; // Diminui uma vida do jogador
+				}
+			} else {
+				System.out.println("Letra inválida, tente novamente!");
 			}
 
 			palavraMomento = new String(palavraMomentoArray); // As tentativas viram uma string
@@ -62,11 +67,11 @@ public class Forca {
 		{ // Caso ele perca
 			System.out.println(player.name);
 			writeForca(); // Exibe a forca
-			System.out.println("Que pena... Você perdeu...");
+			System.out.println("Parabéns!! Você perdeu...");
 			System.out.printf("Palavra Correta: %s\n", this.word.toUpperCase()); // Exibe a palavra correta
 		} else
 		{ // Caso ele vença
-			System.out.println("\nParabéns!! Você adivinhou a palavra!");
+			System.out.println("\nQue pena... Você adivinhou a palavra!");
 			System.out.printf("Palavra Correta: %s\n", this.word.toUpperCase()); // Exibe a palavra correta
 			player.pontos += 500; // Ganha 500 pontos
 		}
