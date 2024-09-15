@@ -11,6 +11,7 @@ public class Forca {
 	public Dicionario dict; // Dicionário de palavras
 	public Player player; // Objeto Jogador
 	public String word; // Palavra escolhida
+	public Highscore placar; // Placar com os maiores vencedores
 	
 	
 	/**
@@ -22,6 +23,7 @@ public class Forca {
 		this.input = new Scanner(System.in);
 		this.dict = new Dicionario();
 		this.tool = new Tool();
+		this.placar = new Highscore();
 	}
 	
 	
@@ -136,6 +138,8 @@ public class Forca {
 			System.out.println("\nQue pena... Você adivinhou a palavra!");
 			player.pontos += 500; // Ganha 500 pontos
 		}
+		placar.addPlayer(this.player);
+		placar.imprimirPlacar();
 	}
 	
 	
