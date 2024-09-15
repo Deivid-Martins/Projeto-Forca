@@ -8,7 +8,7 @@ public class Forca {
 	
 	public String word; // Palavra escolhida
 	public char[] letters; // Letras que ele já adivinhou
-	public Player player; // Array de jogadores indefinido
+	public Player player; // Objeto Jogador
 	public Dicionario dict; // Dicionário de palavras
 	public Tool tool; // Ferramentas
 	
