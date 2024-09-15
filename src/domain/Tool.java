@@ -1,66 +1,88 @@
-// Gerencia ferramentas diversas 
+// Gerencia ferramentas diversas, que não necessariamente servem só para a forca
 package domain;
+
+import java.util.Scanner;
+import java.util.Random; // Útil para randomizar uma palavra
 
 public class Tool 
 {
+	private Scanner input;
+	private Random random; // Classe para randomizar a escolha da palavra
+	
 	int n;
-	char[] letrasCorretas = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-	// Imprime um array de caracteres
+	
+	
+	/**
+	 * Constrói a classe Tool com os objetos e atributos que serão necessários
+	 */
+	public Tool()
+	{
+		this.input = new Scanner(System.in);
+		this.random = new Random();
+	}
+	
+	
+	/**
+	 * Imprime um array de caracteres
+	 * @param array: Array que será impresso
+	 */
 	public void imprimirCharArray(char[] array)
 	{
-		int i;
-		for(i = 0; i < array.length; i++)
+		for(int i = 0; i < array.length; i++)
 		{
 			System.out.print(array[i] + " ");
 		}
-		System.out.println("");
+		System.out.println(""); // Quebra de linha
 	}
 	
-	/* Essa função simplesmente verifica se é possivel ou não chutar essa letra, 
-	   mas apenas verifica se aquela letra realmente é uma letra */
-	public boolean chuteIsPossible (char letra) {
-		for(int i = 0; i < this.letrasCorretas.length; i ++) {
-			if(letra == letrasCorretas[i]) { // se qualquer letra der igual, retorna true, pois so precisa ser igual 1 vez
+	
+	/**
+	 * Verifica se um caractere faz parte do alfabeto
+	 * @param caractere: Caractere que será analisado
+	 * @return Verdadeiro ou falso dependendo se faz parte ou não ddo alfabeto
+	 */
+	public boolean isCharInAlphabet (char caractere) 
+	{
+		// Todas as letras do alfabeto
+		char[] letrasAlfabeto = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+		
+		for(int i = 0; i < letrasAlfabeto.length; i ++)
+		{
+			if(caractere == letrasAlfabeto[i]) 
+			{ // Se qualquer letra der igual, retorna true, pois so precisa ser igual 1 vez
 				return true;
 			}
 		}
-		return false; // se nenhuma letra der true, significa que não existe aquele char em possibilidades, então retorna false;
+		return false; // se nenhuma letra der true, significa que não existe aquele char em possibilidades, então retorna false
 	}
 	
 	
-	// Substitui uma letra num char baseando-se numa string
-	public char[] substituirLetra(String palavra, char[] arrayMomento, char letra)
+	/**
+	 * Substitui uma letra em um array com base numa String
+	 * @param palavra: String que mostra as posições que serão substituidas
+	 * @param array: Array que terá seus caracteres modificados
+	 * @param letra: Letra que substituirá alguma outra
+	 * @return Um array de caracteres com as letras substituidas
+	 */
+	public char[] substituirLetra(String palavra, char[] array, char letra)
 	{
 		for(int i = 0; i < palavra.length(); i++)
 		{
 			if(palavra.toUpperCase().charAt(i) == letra)
-			{
-				arrayMomento[i] = letra;
+			{ // Se alguma letra da string for igual a letra passada como parâmetro
+				array[i] = letra; // O array na posição correta vai receber a letra
 			}
 		}
-		return arrayMomento;
+		return array;
 	}
 	
 	
-	// Compara se dois arrays de char são iguais
-	public boolean charArraysIguais(char[] array1, char[] array2)
-	{
-		if(array1.length != array2.length) 
-		{
-			return false;
-		}
-		
-		for(int i = 0; i < array1.length; i++)
-		{
-			if(array1[i] != array2[i])
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	
+	/**
+	 * Função criada para aumentar as possibilidades do "contais()" (Método de String)
+	 * @param letra: Caractere que será analisado se está dentro da string
+	 * @param palavra: String que pode ou não conter a letra
+	 * @return Verdadeiro caso contenha, do contrário, falso
+	 */
 	public boolean containsChar(char letra, String palavra)
 	{
 		for(int i = 0; i < palavra.length(); i++)
@@ -72,5 +94,56 @@ public class Tool
 			}
 		}
 		return false; // Saindo do laço, significa que não há a letra dentro da palavra
+	}
+	
+	
+	/**
+	 * Imprime um menu e suas opções
+	 * @param menu: Um array de strings que conterá as opções presentes no menu
+	 */
+	public void imprimirMenu(String[] menu) 
+	{
+		for(int i = 0; i < menu.length; i++) 
+		{
+			System.out.printf("[ %d ] - %s\n", i+1, menu[i]); // Exibe uma opção do array
+		}
+	}
+	
+	
+	/**
+	 * Recebe a entrada inteira do usuário com um tratamento de erro, limitando a opção que será digitada
+	 * @param limiteBaixo: O menor número possível a ser digitado
+	 * @param limiteAlto: O maior número possível que poderá ser digitado
+	 * @return Um número entre os valores desejados
+	 */
+	public int intInputLimitado(int limiteBaixo, int limiteAlto)
+	{
+		int categoria; // Opção escolhida pelo usuário
+		
+		do
+		{
+			System.out.print("Informe um número: "); // Prompt
+			categoria = input.nextInt(); // Guarda a categoria
+			
+			// Caso seja um número inválido
+			if(categoria < limiteBaixo || categoria > limiteAlto) 
+			{ 
+				System.out.printf("Digite um número válido! Só pode entre %d e %d!\n", limiteBaixo, limiteAlto);
+			}
+		} while(categoria < limiteBaixo || categoria > limiteAlto);
+		
+		return categoria;
+	}
+	
+	
+	/**
+	 * Randomiza uma palavra dentro de um array de palavras
+	 * @param words: O array contendo inúmeras strings
+	 * @return Uma única String dentro das várias opções disponíveis do array
+	 */
+	public String randomString (String[] words) 
+	{
+		int index = random.nextInt(words.length); // Escolhe um número baseado no tamanho do array
+		return words[index]; // E pega a palavra naquela posição
 	}
 }
