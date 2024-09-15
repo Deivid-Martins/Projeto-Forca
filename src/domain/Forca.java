@@ -32,7 +32,7 @@ public class Forca {
 	 */
 	public void definirPalavra()
 	{
-		this.word = dict.randomWord().toUpperCase(); // Armazena em caixa alta para facilitar a execução dos comandos
+		this.word = dict.escolherPalavra().toUpperCase(); // Armazena em caixa alta para facilitar a execução dos comandos
 		this.letters = new char[this.word.length()]; // Define o tamanho de letters com base na palavra
 		for(int i = 0; i < letters.length; i++)
 		{
@@ -181,8 +181,8 @@ public class Forca {
 				
 			} while(opc != 'N' && opc != 'S'); // Continua enquanto ele não digitar uma letra válida
 			
-			System.out.println("Obrigado por usar nosso programa!"); // Obrigado :D
-			
 		}while(opc != 'N'); // Continua caso ele tenha digitado 's'
+		
+		System.out.println("Obrigado por usar nosso programa!"); // Obrigado :D
 	}
 }

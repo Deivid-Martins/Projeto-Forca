@@ -1,46 +1,56 @@
-// Classe que gerencia o dicionário e as palavras dele
+// Classe que gerencia o dicionário e as palavras jogáveis
 package domain;
 
-import java.util.Random;
-import java.util.Scanner;
-
-public class Dicionario {
-	private Scanner input = new Scanner(System.in); // Cria o input
-	
-	private String[] opcs = {"Objetos", "Alimentos", "Países", "Animais", "Marcas"}; // Opções de categorias para o usuário
-	private Menu menu = new Menu(opcs); // Menu com as opções de cima
-	
-	private Random random = new Random(); // Classe para randomizar a escolha da palavra
-	public String[] words; // Array com as palavras da categoria escolhida
+public class Dicionario 
+{
+	private Tool tool; // Nossa "caixa de ferramentas". Vai servir bastante
 	
 	
-	// Construtor do dicionário
-	public Dicionario () {
-		int category; // Categoria da palavra para se escolher
-		
-		System.out.print("--- Qual categoria você gostaria de jogar? ---\n"); // Prompt
-		menu.imprimirMenu(); // Imprime as opções possíveis
-		
-		do {
-			System.out.print("Sua escolha: "); // Prompt
-			category = input.nextInt(); // Guarda a categoria
-			if(category < 1 || category > 5) { // Caso seja um número inválido
-				System.out.printf("Digite um número válido! Só pode entre 1 e %d!\n", opcs.length);
-			}
-		} while(category < 1 || category > 5);
-		
-		define_words(category); // Define a palavra que será escolhida
+	/**
+	 * Construtor do dicionário. Faz a instância de objetos que serão úteis posteriormente.
+	 */
+	public Dicionario () 
+	{
+		this.tool = new Tool();
 	}
 	
 	
-	// Define a palavra do jogo
-	private void define_words (int category) {
+	/**
+	 * Escolhe uma palavra diante de um dicionário
+	 * @return Uma palavra aleatória com base na categoria que o usuário escolher
+	 */
+	public String escolherPalavra()
+	{
+		String opcs[] = {"Objetos", "Alimentos", "Países", "Animais", "Marcas"}; // Opções de categoria
+		String palavras[]; // Palavras da categoria do usuário
+		String word; // Palavra isolada aleatória
+		int categoria; // Categoria desejada
+		
+		System.out.print("--- Qual categoria você gostaria de jogar? ---\n"); // Prompt
+		tool.imprimirMenu(opcs); // Imprime as opções possíveis
+		categoria = tool.intInputLimitado(1, 5); // Recebe a entrada do usuário entre 1 e 5
+		
+		palavras = define_words(categoria); // Armazena todas as palavras daquela categoria
+		word = tool.randomString(palavras); // Randomiza uma palavra de dentro do array
+		
+		return word; // Define a palavra que será escolhida;
+	}
+	
+	
+	/**
+	 * Usa a categoria que o usuário escolher para selecionar um array com 20 strings
+	 * @param category: A categoria que o usuário escolher
+	 * @return um array de String com várias opções
+	 */
+	private String[] define_words (int category) 
+	{
 		/* Switch para definir as palavras da categoria escolhida para o dicionario
 	 	1 - Objetos | 2 - Alimentos | 3 = Paises | 4 - Animais | 5 - Marcas */
-		switch (category) {
+		String words[] = new String[20];
+		switch (category) 
+		{
 			//  Objetos
 			case 1:
-				words = new String[20];
 				words[0] = "lapiseira";
 				words[1] = "navalhete";
 				words[2] = "caixote";
@@ -64,7 +74,6 @@ public class Dicionario {
 				break;
 			// Alimentos
 			case 2:
-				words = new String[20];
 				words[0] = "sorvete";
 				words[1] = "guacamole";
 				words[2] = "panettone";
@@ -88,7 +97,6 @@ public class Dicionario {
 				break;
 			// Paises
 			case 3:
-				words = new String[20];
 				words[0] = "singapura";
 				words[1] = "dinamarca";
 				words[2] = "brasil";
@@ -112,7 +120,6 @@ public class Dicionario {
 				break;
 			// Animais
 			case 4:
-				words = new String[20];
 				words[0] = "javali";
 				words[1] = "lontra";
 				words[2] = "toupeira";
@@ -136,7 +143,6 @@ public class Dicionario {
 				break;
 			// Marcas
 			case 5:
-				words = new String[20];
 				words[0] = "razer";
 				words[1] = "nike";
 				words[2] = "adidas";
@@ -159,15 +165,10 @@ public class Dicionario {
 				words[19] = "logitech";
 				break;
 			default:
-				System.out.println("|||Ocorreu um erro inesperado|||");
+				// Mensagem de erro para saber o que aconteceu caso dê errado
+				System.out.println("||| OCORREU UM ERRO AO ESCOLHER UMA PALAVRA|||");
 		}
 		System.out.println("Categoria Escolhida com Sucesso!");
-	}
-	
-	
-	// Escolhe uma palavra aleatória da categoria escolhida
-	public String randomWord () {
-		int index = random.nextInt(words.length); // Escolhe um número baseado no tamanho do array
-		return words[index]; // E pega a palavra naquela posição
+		return words;
 	}
 }

@@ -1,10 +1,24 @@
 // Gerencia ferramentas diversas 
 package domain;
 
+import java.util.Scanner;
+
+import java.util.Random; // Útil para randomizar uma palavra
+
 public class Tool 
 {
+	private Scanner input;
+	private Random random; // Classe para randomizar a escolha da palavra
 	int n;
 	char[] letrasCorretas = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+	
+	
+	public Tool()
+	{
+		this.input = new Scanner(System.in);
+		this.random = new Random();
+	}
+	
 	// Imprime um array de caracteres
 	public void imprimirCharArray(char[] array)
 	{
@@ -72,5 +86,46 @@ public class Tool
 			}
 		}
 		return false; // Saindo do laço, significa que não há a letra dentro da palavra
+	}
+	
+	
+	// Imprime o menu
+	public void imprimirMenu(String[] menu) {
+		int i; // Iterador
+		for(i = 0; i < menu.length; i++) {
+			System.out.printf("[ %d ] - %s\n", i+1, menu[i]); // Exibe uma opção do array
+		}
+	}
+	
+	
+	public int intInputLimitado(int limiteBaixo, int limiteAlto)
+	{
+		int categoria; // Opção escolhida pelo usuário
+		
+		do
+		{
+			System.out.print("Informe um número: "); // Prompt
+			categoria = input.nextInt(); // Guarda a categoria
+			
+			// Caso seja um número inválido
+			if(categoria < limiteBaixo || categoria > limiteAlto) 
+			{ 
+				System.out.printf("Digite um número válido! Só pode entre %d e %d!\n", limiteBaixo, limiteAlto);
+			}
+		} while(categoria < limiteBaixo || categoria > limiteAlto);
+		
+		return categoria;
+	}
+	
+	
+	/**
+	 * Randomiza uma palavra dentro de um array de palavras
+	 * @param words
+	 * @return Uma única String dentro das várias opções disponíveis do array
+	 */
+	public String randomString (String[] words) 
+	{
+		int index = random.nextInt(words.length); // Escolhe um número baseado no tamanho do array
+		return words[index]; // E pega a palavra naquela posição
 	}
 }
