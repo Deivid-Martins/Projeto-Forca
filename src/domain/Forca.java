@@ -100,7 +100,7 @@ public class Forca {
 		letraChute = input.next().toUpperCase().charAt(0); // Pega a letra que o usuário digitar
 		
 		//Verifica se a letra do chute, realmente é uma letra no alfabeto, essa função não tem ligação com a palavra
-		if(tool.chuteIsPossible(letraChute)) 
+		if(tool.isCharInAlphabet(letraChute)) 
 		{
 			// Caso a letra que ele chutou esteja presente			
 			if(tool.containsChar(letraChute, this.word.toUpperCase()))

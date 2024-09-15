@@ -1,3 +1,5 @@
+// Classe que gerencia as pontuações máximas de cada jogador
+
 package domain;
 
 public class Highscore 
