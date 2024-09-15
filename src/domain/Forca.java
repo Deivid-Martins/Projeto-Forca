@@ -11,6 +11,7 @@ public class Forca {
 	public Player player; // Array de jogadores indefinido
 	public Dicionario dict; // Dicionário de palavras
 	public Tool tool; // Ferramentas
+	public Highscore placar;
 	
 	
 	// Construtor da forca com jogadores e palavra definidos
@@ -71,6 +72,8 @@ public class Forca {
 			System.out.printf("Palavra Correta: %s\n", this.word.toUpperCase()); // Exibe a palavra correta
 			player.pontos += 500; // Ganha 500 pontos
 		}
+		placar.addJogador(this.player, placar.jogadores.length);
+		placar.exibirScore();
 	}
 	
 	

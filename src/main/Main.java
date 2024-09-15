@@ -3,7 +3,9 @@
 package main;
 
 import java.util.Scanner;
+
 import domain.Forca; // A própria forca
+import domain.Highscore;
 
 public class Main {
 	public static void main(String[] args) {
@@ -12,9 +14,11 @@ public class Main {
 
 		Scanner input = new Scanner(System.in);
 		char opc;
+		Highscore placar = new Highscore(); 
 		
 		do {
 			Forca forca = new Forca(); // Forca
+			forca.placar = placar;
 			
 			forca.chutarLetra();
 
