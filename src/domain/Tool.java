@@ -4,6 +4,7 @@ package domain;
 public class Tool 
 {
 	int n;
+	char[] letrasCorretas = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 	// Imprime um array de caracteres
 	public void imprimirCharArray(char[] array)
 	{
@@ -13,6 +14,17 @@ public class Tool
 			System.out.print(array[i] + " ");
 		}
 		System.out.println("");
+	}
+	
+	/* Essa função simplesmente verifica se é possivel ou não chutar essa letra, 
+	   mas apenas verifica se aquela letra realmente é uma letra */
+	public boolean chuteIsPossible (char letra) {
+		for(int i = 0; i < this.letrasCorretas.length; i ++) {
+			if(letra == letrasCorretas[i]) { // se qualquer letra der igual, retorna true, pois so precisa ser igual 1 vez
+				return true;
+			}
+		}
+		return false; // se nenhuma letra der true, significa que não existe aquele char em possibilidades, então retorna false;
 	}
 	
 	
