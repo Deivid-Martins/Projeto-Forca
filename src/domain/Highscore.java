@@ -91,7 +91,7 @@ public class Highscore
 		System.out.println("");
 		for(int i = 0; i < this.jogadores.length; i++)
 		{
-			System.out.printf("[ %d ] - %s \t --- \t%d\n", i+1, this.jogadores[i].name, this.jogadores[i].pontos);
+			System.out.printf("[ %d ] - %-10s --- \t%d\n", i+1, this.jogadores[i].name, this.jogadores[i].pontos);
 		}
 	}
 }
