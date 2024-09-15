@@ -98,6 +98,7 @@ public class Highscore
 		System.out.println("");
 		for(int i = 0; i < this.jogadores.length; i++)
 		{
+			// Saída do nome do jogador adaptado ao nome de maior tamanho presente dentro do array
 			String output = String.format("%" + -(this.tamMaiorNome) + "s", this.jogadores[i].name);
 			System.out.printf("[ %d ] - %s --- %d\n", i+1, output, this.jogadores[i].pontos);
 		}
