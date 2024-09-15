@@ -5,6 +5,7 @@ package domain;
 public class Highscore 
 {
 	Player jogadores[]; // Array contendo todos os jogadores
+	int tamMaiorNome; // Armazena o tamanho do maior nome (Só servirá para o print)
 	
 	
 	/**
@@ -13,6 +14,7 @@ public class Highscore
 	public Highscore()
 	{
 		this.jogadores = new Player[0]; // Não há jogadores no início
+		tamMaiorNome = 0; // O maior nome não existe ainda
 	}
 	
 	
@@ -53,6 +55,11 @@ public class Highscore
 				players[i] = this.jogadores[i]; // Copia dado
 			}
 			
+			if(newPlayer.name.length() > this.tamMaiorNome)
+			{
+				tamMaiorNome = newPlayer.name.length();
+			}
+			
 			players[tam] = newPlayer; // Adiciona novo jogador
 			this.jogadores = players; // Substitui o atributo pelo novo vetor
 		}
@@ -91,7 +98,8 @@ public class Highscore
 		System.out.println("");
 		for(int i = 0; i < this.jogadores.length; i++)
 		{
-			System.out.printf("[ %d ] - %-10s --- \t%d\n", i+1, this.jogadores[i].name, this.jogadores[i].pontos);
+			String output = String.format("%" + -(this.tamMaiorNome) + "s", this.jogadores[i].name);
+			System.out.printf("[ %d ] - %s --- %d\n", i+1, output, this.jogadores[i].pontos);
 		}
 	}
 }
