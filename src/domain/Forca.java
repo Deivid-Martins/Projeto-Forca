@@ -181,6 +181,8 @@ public class Forca {
 				
 			} while(opc != 'N' && opc != 'S'); // Continua enquanto ele não digitar uma letra válida
 			
+			System.out.println("Obrigado por usar nosso programa!"); // Obrigado :D
+			
 		}while(opc != 'N'); // Continua caso ele tenha digitado 's'
 	}
 }

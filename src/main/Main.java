@@ -6,10 +6,7 @@ import domain.Forca; // A própria forca
 
 public class Main {
 	public static void main(String[] args) {
-		Forca forca = new Forca(); // Forca
-		forca.definirPalavra();
-		
+		Forca forca = new Forca();
 		forca.jogar();
-		System.out.println("Obrigado por usar nosso programa!");
 	}
 }
