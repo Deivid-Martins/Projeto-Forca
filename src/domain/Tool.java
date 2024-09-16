@@ -27,6 +27,12 @@ public class Tool
 		}
 	}
 	
+	public void clearLetrasUsadas () {
+		for(int i = 0; i < this.letrasUsadas.length; i ++) {
+			this.letrasUsadas[i] = ' ';
+		}
+	}
+	
 	
 	/**
 	 * Imprime um array de caracteres

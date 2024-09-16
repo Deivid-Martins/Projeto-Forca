@@ -140,6 +140,8 @@ public class Forca {
 			System.out.println("\nQue pena... Você adivinhou a palavra!");
 			player.pontos += 500; // Ganha 500 pontos
 		}
+		tool.clearLetrasUsadas();
+		
 		placar.addPlayer(this.player);
 		placar.imprimirPlacar();
 	}
