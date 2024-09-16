@@ -104,15 +104,17 @@ public class Forca {
 		//Verifica se a letra do chute, realmente é uma letra no alfabeto, essa função não tem ligação com a palavra
 		if(tool.isCharInAlphabet(letraChute)) 
 		{
-			// Caso a letra que ele chutou esteja presente			
-			if(tool.containsChar(letraChute, this.word.toUpperCase()))
-			{
-				// Substitui o tracinho pela letra certa
-				this.letters = tool.substituirLetra(this.word, this.letters, letraChute); 
-				player.pontos += 100; // Ganha 100 pontos
-			} else
-			{ // Caso a letra não esteja presente na palavra
-				this.player.attempts--; // Diminui uma vida do jogador
+			if(tool.letraFoiUsada(letraChute)) {
+				// Caso a letra que ele chutou esteja presente			
+				if(tool.containsChar(letraChute, this.word.toUpperCase()))
+				{
+					// Substitui o tracinho pela letra certa
+					this.letters = tool.substituirLetra(this.word, this.letters, letraChute); 
+					player.pontos += 100; // Ganha 100 pontos
+				} else
+				{ // Caso a letra não esteja presente na palavra
+					this.player.attempts--; // Diminui uma vida do jogador
+				}
 			}
 		} else 
 		{ // Caso ele não tenha digitado uma letra do alfabeto

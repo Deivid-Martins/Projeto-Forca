@@ -9,6 +9,7 @@ public class Tool
 	private Scanner input;
 	private Random random; // Classe para randomizar a escolha da palavra
 	
+	public char[] letrasUsadas;
 	int n;
 	
 	
@@ -19,6 +20,11 @@ public class Tool
 	{
 		this.input = new Scanner(System.in);
 		this.random = new Random();
+		this.letrasUsadas = new char[26];
+		
+		for(int i = 0; i < letrasUsadas.length; i++) {
+			letrasUsadas[i] = ' ';
+		}
 	}
 	
 	
@@ -35,6 +41,44 @@ public class Tool
 		System.out.println(""); // Quebra de linha
 	}
 	
+	
+	/**
+	 * Resumo: Verifica se a letra foi usada anteriormente, se não foi, adiciona a mesma no vetor
+	 * @param letra: letra chutada pelo usuário
+	 * */
+	public boolean letraFoiUsada (char letra) {
+		boolean aux = false; // Variável auxiliar que fica true no caso daquela letra ja ter sido usada
+		for(int i = 0; i < letrasUsadas.length; i ++) {
+			if(letrasUsadas[i] == letra) {
+				aux = true; // Se a letra foi usada em qualquer posição, aux = true
+				break; // Só é necessario verificar uma unica vez, para poupar processamento, o loop é quebrado
+			}
+		}
+		if(aux == false) {
+			letrasUsadasAdd(letra);
+			return true;
+		} else {
+			System.out.println("Letra ja foi usada!");
+			return false;
+		}
+	}
+	
+	/**
+	 * Resumo: Função que adiciona letra em um vetor, na primeira posição onde existir apenas ' '
+	 * neste caso, será ultilizado após a função que verifica se aquela letra ja existe, e ainda antes disso
+	 * deve ser verificado se esta letra é realmente uma letra do alfabeto
+	 * @param letra: letra que o usuario deseja adicionar ao vetor, no caso de não existir 
+	 * */
+	private void letrasUsadasAdd(char letra) {
+		int index = 0; // Variável que salva qual posição será alterada
+		for(int i = 0; i < this.letrasUsadas.length; i ++) {
+			if(letrasUsadas[i] == ' ') {
+				index = i;
+				break; // Só é necessario encontrar o ' ' na primeira vez, se continuar a rodar, perderá a logica, pois a posição será perdida
+			}
+		}
+		this.letrasUsadas[index] = letra; // Aloca o @param letra no vetor, na posição index
+	}
 	
 	/**
 	 * Verifica se um caractere faz parte do alfabeto
@@ -146,4 +190,4 @@ public class Tool
 		int index = random.nextInt(words.length); // Escolhe um número baseado no tamanho do array
 		return words[index]; // E pega a palavra naquela posição
 	}
-}
+}	

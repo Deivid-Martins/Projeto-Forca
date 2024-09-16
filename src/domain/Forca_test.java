@@ -92,4 +92,3 @@ public class Forca_test {
 		return this.word;
 	}
 }
-
