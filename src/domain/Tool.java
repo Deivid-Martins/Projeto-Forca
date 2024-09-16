@@ -26,7 +26,9 @@ public class Tool
 			letrasUsadas[i] = ' ';
 		}
 	}
-	
+	/**
+	 * Ao fim de uma rodada, essa função é executada, pois o proximo jogo deve iniciar com este vetor zerado
+	 * */
 	public void clearLetrasUsadas () {
 		for(int i = 0; i < this.letrasUsadas.length; i ++) {
 			this.letrasUsadas[i] = ' ';
