@@ -20,18 +20,16 @@ public class Tool
 	{
 		this.input = new Scanner(System.in);
 		this.random = new Random();
-		this.letrasUsadas = new char[26];
-		
-		for(int i = 0; i < letrasUsadas.length; i++) {
-			letrasUsadas[i] = ' ';
-		}
+		this.letrasUsadas = new char[26]; // Quantidade de letras do alfabeto
 	}
+	
+	
 	/**
-	 * Ao fim de uma rodada, essa função é executada, pois o proximo jogo deve iniciar com este vetor zerado
-	 * */
+	 * Limpa o vetor de letras que já foram utilizadas pelo jogador
+	 */
 	public void clearLetrasUsadas () {
 		for(int i = 0; i < this.letrasUsadas.length; i ++) {
-			this.letrasUsadas[i] = ' ';
+			this.letrasUsadas[i] = ' '; // Reseta as letras usadas
 		}
 	}
 	
@@ -55,38 +53,42 @@ public class Tool
 	 * @param letra: letra chutada pelo usuário
 	 * */
 	public boolean letraFoiUsada (char letra) {
-		boolean aux = false; // Variável auxiliar que fica true no caso daquela letra ja ter sido usada
 		for(int i = 0; i < letrasUsadas.length; i ++) {
-			if(letrasUsadas[i] == letra) {
-				aux = true; // Se a letra foi usada em qualquer posição, aux = true
-				break; // Só é necessario verificar uma unica vez, para poupar processamento, o loop é quebrado
+			if(letrasUsadas[i] == letra) { // Caso o caractere seja igual a alguma posição do array
+				System.out.println("Letra ja foi usada!");
+				return true; // A letra foi sim usada
 			}
 		}
-		if(aux == false) {
-			letrasUsadasAdd(letra);
-			return true;
-		} else {
-			System.out.println("Letra ja foi usada!");
-			return false;
-		}
+		letrasUsadasAdd(letra); // Adiciona ao vetor de letras usadas
+		return false; // A letra não foi usada
 	}
+	
 	
 	/**
 	 * Resumo: Função que adiciona letra em um vetor, na primeira posição onde existir apenas ' '
 	 * neste caso, será ultilizado após a função que verifica se aquela letra ja existe, e ainda antes disso
 	 * deve ser verificado se esta letra é realmente uma letra do alfabeto
-	 * @param letra: letra que o usuario deseja adicionar ao vetor, no caso de não existir 
+	 * @param letra: letra que o usuario deseja adicionar ao vetor, no caso de não existir
+	 * 
+	 * ['a', 'b', ' ', ' '...]
+	 *   0    1    2    3
+	 *    	
+	 * letra = b
+	 * index = 1
 	 * */
 	private void letrasUsadasAdd(char letra) {
 		int index = 0; // Variável que salva qual posição será alterada
-		for(int i = 0; i < this.letrasUsadas.length; i ++) {
-			if(letrasUsadas[i] == ' ') {
-				index = i;
-				break; // Só é necessario encontrar o ' ' na primeira vez, se continuar a rodar, perderá a logica, pois a posição será perdida
+		do
+		{ // Verifica se aquela posição tem um caractere vazio
+			if(this.letrasUsadas[index] == ' ')
+			{
+				this.letrasUsadas[index] = letra; // Aquela posição recebe a letra
 			}
+			index++; // Soma uma posição
 		}
-		this.letrasUsadas[index] = letra; // Aloca o @param letra no vetor, na posição index
+		while(this.letrasUsadas[index - 1] != letra); // Enquanto não tiver tido uma substituição
 	}
+	
 	
 	/**
 	 * Verifica se um caractere faz parte do alfabeto

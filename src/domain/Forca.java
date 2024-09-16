@@ -104,7 +104,7 @@ public class Forca {
 		//Verifica se a letra do chute, realmente é uma letra no alfabeto, essa função não tem ligação com a palavra
 		if(tool.isCharInAlphabet(letraChute)) 
 		{
-			if(tool.letraFoiUsada(letraChute)) {
+			if(!(tool.letraFoiUsada(letraChute))) {
 				// Caso a letra que ele chutou esteja presente			
 				if(tool.containsChar(letraChute, this.word.toUpperCase()))
 				{
@@ -140,8 +140,6 @@ public class Forca {
 			System.out.println("\nQue pena... Você adivinhou a palavra!");
 			player.pontos += 500; // Ganha 500 pontos
 		}
-		tool.clearLetrasUsadas();
-		
 		placar.addPlayer(this.player);
 		placar.imprimirPlacar();
 	}
@@ -179,6 +177,7 @@ public class Forca {
 		do
 		{
 			this.player = new Player(); // Um novo jogador começa
+			tool.clearLetrasUsadas(); // Limpa as letras usadas
 			definirPalavra(); // Inicia uma palavra nova
 			adivinharPalavra(); // Joga com essa palavra
 			

@@ -23,7 +23,7 @@ public class Highscore
 	 * @param newPlayer: O jogador que será comparado para saber se temos um com o mesmo nome do dele
 	 * @return Verdadeiro ou falso dependendo se a substituição foi feita
 	 */
-	public boolean substituirIgual(Player newPlayer)
+	private boolean substituirIgual(Player newPlayer)
 	{
 		for(int i = 0; i < this.jogadores.length; i++)
 		{ // Percorre todo o array de jogadores
@@ -40,6 +40,14 @@ public class Highscore
 	/**
 	 * Adiciona um novo jogador ao vetor, criando um novo vetor que substituirá o atributo
 	 * @param newPlayer: Novo jogador que será adicionado
+	 * 
+	 * ["Mikaelle"]
+	 *     
+	 * ["Mikaelle"]
+	 * 
+	 * newPlayer = "Mikaelle"
+	 * tam = 0
+	 * maiorNome = 8 
 	 */
 	public void addPlayer(Player newPlayer)
 	{
@@ -69,6 +77,12 @@ public class Highscore
 	/**
 	 * Ordena o vetor de jogadores de trás para frente.
 	 * Não há necessidade de dois laços, já que os valores são inseridos um a um.
+	 * 
+	 * ["Deivid - 500", "Kayke - 300", "Patricio - 100"]
+	 *         0               1               2
+	 * 
+	 * aux = "Deivid - 500"
+	 * i = 1
 	 */
 	public void ordenar()
 	{
@@ -99,6 +113,8 @@ public class Highscore
 		for(int i = 0; i < this.jogadores.length; i++)
 		{
 			// Saída do nome do jogador adaptado ao nome de maior tamanho presente dentro do array
+			// O "output" recebe uma string formatada pelo método ".format" com os argumentos indicados
+			// Nesse caso, há a necessidade de uma inserção de um número entre a "%" e o "s".
 			String output = String.format("%" + -(this.tamMaiorNome) + "s", this.jogadores[i].name);
 			System.out.printf("[ %d ] - %s --- %d\n", i+1, output, this.jogadores[i].pontos);
 		}
