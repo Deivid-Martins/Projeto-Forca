@@ -16,10 +16,10 @@ Este jogo da forca é um projeto de três estudantes do terceiro período do cur
 ![Jogo Funcionando](JogoDaForca.png)
 
 ---
-#### Metodologia
-O jogo da forca foi pensado como forma de utilizar, principalmente, a manipulação de Strings de forma ampla e bastante útil, sendo a melhor forma encontrada de demonstrar nossos conhecimentos acerca desse e de outros assuntos.
-Tendo em mente a concepção inicial da ideia, foi feito um desenvolvimento melhor do planejamento, onde encontramos a quantidade de jogadores e forma como o projeto poderia funcionar. Foi feita, também, uma rápida base da programação do jogo para que tivéssemos noção do que poderia ser feito.
-Analisando todos os pontos supracitados, fez-se necessário uma lista de tarefas para que fossem divididas as atvidades entre os integrantes do grupo. Assim, montamos um grupo de Whatsapp para discutir quem faria cada funcionalidade e começamos a desenvolver, mandando todos os códigos - feitos no Eclipse - para o GitHub, através do GitHub Desktop. Essa mesma metodologia foi utilizada para todos os integrantes.
+## Metodologia
+- O jogo da forca foi pensado como forma de utilizar, principalmente, a manipulação de Strings de forma ampla e bastante útil, sendo a melhor forma encontrada de demonstrar nossos conhecimentos acerca desse e de outros assuntos.
+- Tendo em mente a concepção inicial da ideia, foi feito um desenvolvimento melhor do planejamento, onde encontramos a quantidade de jogadores e forma como o projeto poderia funcionar. Foi feita, também, uma rápida base da programação do jogo para que tivéssemos noção do que poderia ser feito.
+- Analisando todos os pontos supracitados, fez-se necessário uma lista de tarefas para que fossem divididas as atvidades entre os integrantes do grupo. Assim, montamos um grupo de Whatsapp para discutir quem faria cada funcionalidade e começamos a desenvolver, mandando todos os códigos - feitos no Eclipse - para o GitHub, através do GitHub Desktop. Essa mesma metodologia foi utilizada para todos os integrantes.
 
 ![Lista de Tarefas do Projeto](ListaDeTarefas.png)
 
