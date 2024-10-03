@@ -27,7 +27,6 @@ Este jogo da forca é um projeto de três estudantes do terceiro período do cur
 #### Funcionalidades Planejadas
 - [x] Jogo da forca funcional.
 - [x] Um placar de pontuação.
-- [ ] Tela de exibição do jogo. (Em análise)
 ---
 #### Problemas Conhecidos
 - Todos os problemas conhecidos no momento foram corrigidos.
